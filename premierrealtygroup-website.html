@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Premier Realty Group | Akron, OH Real Estate</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent: #10B981;
+      --accent-dark: #059669;
+      --accent-light: #d1fae5;
+      --bg: #0a0a0a;
+      --surface: #111111;
+      --surface2: #1a1a1a;
+      --border: #222222;
+      --text: #f5f5f5;
+      --muted: #a3a3a3;
+      --white: #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 5%;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.02em;
+    }
+
+    .nav-logo span { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-cta {
+      background: var(--accent);
+      color: var(--bg) !important;
+      padding: 0.5rem 1.25rem;
+      border-radius: 6px;
+      font-weight: 700 !important;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover { background: var(--accent-dark) !important; color: var(--white) !important; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 5% 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 60% 40%, rgba(16,185,129,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(16,185,129,0.1);
+      border: 1px solid rgba(16,185,129,0.3);
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: var(--white);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+      max-width: 480px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #000;
+      padding: 0.9rem 2rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover { background: var(--accent-dark); transform: translateY(-1px); }
+
+    .btn-ghost {
+      color: var(--text);
+      padding: 0.9rem 2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      transition: border-color 0.2s, color 0.2s;
+      display: inline-block;
+    }
+
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+    .hero-stats {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .hero-stat-num {
+      font-size: 1.75rem;
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1;
+    }
+
+    .hero-stat-label {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 0.25rem;
+    }
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .hero-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .hero-card-img {
+      width: 100%;
+      height: 260px;
+      background: linear-gradient(135deg, #1a2e1a 0%, #0d2318 50%, #0a1a12 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+    }
+
+    .hero-card-body { padding: 1.5rem; }
+
+    .hero-card-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-card-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.25rem;
+    }
+
+    .hero-card-price {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--accent);
+    }
+
+    .hero-card-details {
+      display: flex;
+      gap: 1rem;
+      margin-top: 0.75rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .floating-badge {
+      position: absolute;
+      top: -16px;
+      right: -16px;
+      background: var(--accent);
+      color: #000;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.6rem 1rem;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      box-shadow: 0 4px 20px rgba(16,185,129,0.4);
+    }
+
+    /* ── SECTION WRAPPER ── */
+    section {
+      padding: 80px 5%;
+    }
+
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    .section-sub {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 560px;
+    }
+
+    /* ── SERVICES ── */
+    .services { background: var(--surface); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .service-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .service-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+    }
+
+    .service-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .service-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+
+    .service-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ── TRUST ── */
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .trust-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+    }
+
+    .trust-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(16,185,129,0.1);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+
+    .trust-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.4rem;
+    }
+
+    .trust-desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials { background: var(--surface); }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .testimonial-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+    }
+
+    .stars {
+      color: #F59E0B;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      letter-spacing: 2px;
+    }
+
+    .testimonial-quote {
+      font-size: 0.95rem;
+      color: var(--text);
+      line-height: 1.75;
+      margin-bottom: 1.25rem;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .author-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.9rem;
+      color: #000;
+      flex-shrink: 0;
+    }
+
+    .author-name {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--white);
+    }
+
+    .author-location {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    /* ── ABOUT ── */
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-visual {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 3rem;
+      text-align: center;
+    }
+
+    .about-avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      margin: 0 auto 1.5rem;
+    }
+
+    .about-name {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 0.25rem;
+    }
+
+    .about-title {
+      font-size: 0.875rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+
+    .about-badge {
+      background: rgba(16,185,129,0.1);
+      border: 1px solid rgba(16,185,129,0.25);
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+    }
+
+    .about-copy p {
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 1.25rem;
+      font-size: 1rem;
+    }
+
+    .about-copy p:last-child { margin-bottom: 0; }
+
+    /* ── CONTACT ── */
+    .contact { background: var(--surface); }
+
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .contact-info h3 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    .contact-info p {
+      color: var(--muted);
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact-detail-icon {
+      width: 36px;
+      height: 36px;
+      background: rgba(16,185,129,0.1);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .contact-detail-text {
+      font-size: 0.9rem;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .contact-form {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.825rem;
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent);
+    }
+
+    .form-group textarea { resize: vertical; min-height: 120px; }
+
+    .form-submit {
+      width: 100%;
+      background: var(--accent);
+      color: #000;
+      padding: 1rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 700;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .form-submit:hover { background: var(--accent-dark); transform: translateY(-1px); }
+
+    /* ── MAP PLACEHOLDER ── */
+    .map-placeholder {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 0.875rem;
+      margin-top: 1.5rem;
+      gap: 0.5rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 3rem 5%;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .footer-brand-name {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-brand-name span { color: var(--accent); }
+
+    .footer-brand-desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 260px;
+      margin-bottom: 1.5rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .social-link {
+      width: 36px;
+      height: 36px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: border-color 0.2s;
+    }
+
+    .social-link:hover { border-color: var(--accent); }
+
+    .footer-col-title {
+      font-size: 0.825rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--accent); }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 2rem auto 0;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-up { animation: fadeUp 0.6s ease forwards; }
+    .fade-up-delay { animation: fadeUp 0.6s ease 0.15s forwards; opacity: 0; }
+    .fade-up-delay2 { animation: fadeUp 0.6s ease 0.3s forwards; opacity: 0; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero-inner,
+      .about-inner,
+      .contact-inner { grid-template-columns: 1fr; }
+
+      .hero-visual { display: none; }
+
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      nav { padding: 0 4%; }
+      .nav-links { display: none; }
+      section { padding: 60px 4%; }
+
+      .form-row { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+
+      .hero-stats { flex-wrap: wrap; gap: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">Premier<span>Realty</span></div>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#why-us">Why Us</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact" class="nav-cta">Get Started</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="fade-up">
+        <div class="hero-badge">&#127968; Akron's #1 Real Estate Team</div>
+        <h1>Find Your Dream Home in Akron — <em>Without the Stress</em></h1>
+        <p class="hero-sub">Premier Realty Group helps Akron families buy and sell homes with confidence. Local experts. Proven results. Zero surprises — from first showing to closing day.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn-primary">Get a Free Home Valuation</a>
+          <a href="#services" class="btn-ghost">See How We Work</a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="hero-stat-num">500+</div>
+            <div class="hero-stat-label">Homes Sold</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">15+</div>
+            <div class="hero-stat-label">Years in Akron</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">98%</div>
+            <div class="hero-stat-label">Asking Price Avg</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual fade-up-delay2">
+        <div class="floating-badge">Just Listed</div>
+        <div class="hero-card">
+          <div class="hero-card-img">&#127968;</div>
+          <div class="hero-card-body">
+            <div class="hero-card-tag">Featured Listing</div>
+            <div class="hero-card-title">4-Bed Colonial — West Akron</div>
+            <div class="hero-card-price">$289,000</div>
+            <div class="hero-card-details">
+              <span>🛏 4 Beds</span>
+              <span>🛁 2.5 Baths</span>
+              <span>📐 2,100 sqft</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="section-inner">
+      <div class="section-label">What We Do</div>
+      <h2 class="section-title">Every Real Estate Need, Covered</h2>
+      <p class="section-sub">Whether you're buying your first home or building a rental portfolio, our team has the local knowledge to get you there.</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">🏡</div>
+          <div class="service-title">Home Buying</div>
+          <p class="service-desc">We guide you from first showing to closing day — negotiating the best price so you never overpay. No pressure, just expert guidance every step of the way.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">💰</div>
+          <div class="service-title">Home Selling</div>
+          <p class="service-desc">Strategic pricing, professional staging advice, and maximum online exposure. Our sellers average 98% of asking price and go under contract faster than the Akron market average.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📈</div>
+          <div class="service-title">Investment Properties</div>
+          <p class="service-desc">Find cash-flowing rentals and flip opportunities in Akron's growing neighborhoods. We know the numbers — vacancy rates, cap rates, and where the next hot pocket is forming.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🚚</div>
+          <div class="service-title">Relocation Services</div>
+          <p class="service-desc">Moving to or from Akron? We make the transition seamless. Virtual tours, neighborhood guides, and a dedicated agent who treats your move like it's their own.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST -->
+  <section id="why-us">
+    <div class="section-inner">
+      <div class="section-label">Why Premier Realty</div>
+      <h2 class="section-title">The Akron Advantage</h2>
+      <p class="section-sub">We've been serving Summit County for over 15 years. Here's what sets us apart from every other brokerage in town.</p>
+      <div class="trust-grid">
+        <div class="trust-card">
+          <div class="trust-icon">📍</div>
+          <div>
+            <div class="trust-title">Hyper-Local Knowledge</div>
+            <p class="trust-desc">We know every neighborhood from Highland Square to Fairlawn to Chapel Hill. School districts, flood zones, up-and-coming blocks — we have the inside track others don't.</p>
+          </div>
+        </div>
+        <div class="trust-card">
+          <div class="trust-icon">⚡</div>
+          <div>
+            <div class="trust-title">We Move Fast</div>
+            <p class="trust-desc">Akron's market doesn't wait. Our listings go live with professional photos, 3D tours, and social promotion within 48 hours. Buyers get same-day showing availability.</p>
+          </div>
+        </div>
+        <div class="trust-card">
+          <div class="trust-icon">🤝</div>
+          <div>
+            <div class="trust-title">No Pressure. Ever.</div>
+            <p class="trust-desc">We're in the business of long-term relationships, not quick commissions. If a home isn't right for you, we'll tell you. Our repeat and referral rate speaks for itself.</p>
+          </div>
+        </div>
+        <div class="trust-card">
+          <div class="trust-icon">🔒</div>
+          <div>
+            <div class="trust-title">Transparent From Day One</div>
+            <p class="trust-desc">No hidden fees. No bait-and-switch pricing strategies. You'll know exactly what to expect at every stage — from the first consultation to the keys in your hand.</p>
+          </div>
+        </div>
+        <div class="trust-card">
+          <div class="trust-icon">📊</div>
+          <div>
+            <div class="trust-title">Data-Driven Pricing</div>
+            <p class="trust-desc">Every price we recommend is backed by a detailed CMA — 90 days of local comps, active listings, and neighborhood trend data. No guessing, just market intelligence.</p>
+          </div>
+        </div>
+        <div class="trust-card">
+          <div class="trust-icon">⭐</div>
+          <div>
+            <div class="trust-title">5-Star Track Record</div>
+            <p class="trust-desc">We've earned hundreds of 5-star reviews across Google, Zillow, and Realtor.com. Our clients don't just close — they send their friends and family to us next.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials" id="testimonials">
+    <div class="section-inner">
+      <div class="section-label">Client Reviews</div>
+      <h2 class="section-title">What Akron Families Are Saying</h2>
+      <p class="section-sub">Real results from real clients across Summit County.</p>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-quote">"Premier Realty got our home under contract in 6 days — $12,000 over asking. We thought that was impossible in our neighborhood. They priced it perfectly and the photos were stunning. Couldn't be happier."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">MT</div>
+            <div>
+              <div class="author-name">Mark & Sarah T.</div>
+              <div class="author-location">Fairlawn, OH</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-quote">"As first-time buyers, we were nervous about everything. Our agent answered every question — even the dumb ones — without making us feel rushed. We closed in 28 days and got $5,000 in seller concessions. Highly recommend."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">DM</div>
+            <div>
+              <div class="author-name">DeShawn M.</div>
+              <div class="author-location">Cuyahoga Falls, OH</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-quote">"I've bought two investment properties through Premier Realty. They find deals other agents miss — off-market stuff, underpriced listings, the works. Both properties cash flow from day one. They've made me real money."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">LK</div>
+            <div>
+              <div class="author-name">Linda K.</div>
+              <div class="author-location">Akron, OH</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-inner">
+      <div class="about-inner">
+        <div class="about-visual">
+          <div class="about-avatar">👤</div>
+          <div class="about-name">The Premier Team</div>
+          <div class="about-title">Local Experts. Real Results.</div>
+          <div class="about-badges">
+            <span class="about-badge">Akron Native</span>
+            <span class="about-badge">Licensed in OH</span>
+            <span class="about-badge">15+ Years</span>
+            <span class="about-badge">Summit County Expert</span>
+            <span class="about-badge">Investor-Friendly</span>
+          </div>
+        </div>
+        <div class="about-copy">
+          <div class="section-label">About Us</div>
+          <h2 class="section-title">We're Your Neighbors First</h2>
+          <p>I founded Premier Realty Group because I believed buying and selling a home should feel exciting — not overwhelming. I grew up in Akron, raised my family here, and I know every street, every school, and every neighborhood in Summit County the way only a true local can.</p>
+          <p>Our team is built on one principle: people over transactions. We take on fewer clients than the big box brokerages so we can give every family the time and attention they deserve. We don't close a deal and disappear — many of our clients have become lifelong friends.</p>
+          <p>Whether you're buying your first home, downsizing after the kids leave, or building a rental portfolio, we're honored to be part of your story. Let's find you something great.</p>
+          <a href="#contact" class="btn-primary" style="margin-top: 1.5rem; display: inline-block;">Talk to Our Team →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="section-inner">
+      <div class="section-label">Get In Touch</div>
+      <h2 class="section-title">Let's Start Your Next Chapter</h2>
+      <div style="height: 2rem;"></div>
+      <div class="contact-inner">
+        <div class="contact-info">
+          <h3>Ready to buy, sell, or invest?</h3>
+          <p>Fill out the form and one of our agents will reach out within a few hours. Or give us a call — we actually pick up the phone.</p>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">📞</div>
+            <div class="contact-detail-text">(330) 555-0200</div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">📧</div>
+            <div class="contact-detail-text">hello@premierrealtyakron.com</div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">📍</div>
+            <div class="contact-detail-text">123 Main St, Suite 200<br/>Akron, OH 44308</div>
+          </div>
+          <div class="contact-detail">
+            <div class="contact-detail-icon">🕐</div>
+            <div class="contact-detail-text">Mon–Sat: 8am–7pm<br/>Sunday: By Appointment</div>
+          </div>
+          <div class="map-placeholder">
+            🗺 Map · 123 Main St, Akron, OH 44308
+          </div>
+        </div>
+        <div class="contact-form">
+          <form>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fname">First Name</label>
+                <input type="text" id="fname" name="fname" placeholder="John" />
+              </div>
+              <div class="form-group">
+                <label for="lname">Last Name</label>
+                <input type="text" id="lname" name="lname" placeholder="Smith" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="john@email.com" />
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone" placeholder="(330) 000-0000" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="interest">I'm Looking To...</label>
+              <select id="interest" name="interest">
+                <option value="">Select one</option>
+                <option value="buy">Buy a Home</option>
+                <option value="sell">Sell My Home</option>
+                <option value="invest">Invest in Property</option>
+                <option value="relocate">Relocate to/from Akron</option>
+                <option value="valuation">Get a Free Valuation</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Tell Us More</label>
+              <textarea id="message" name="message" placeholder="Budget, timeline, neighborhoods you love, or any questions..."></textarea>
+            </div>
+            <button type="submit" class="form-submit">Send My Request — It's Free</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand-name">Premier<span>Realty</span> Group</div>
+        <p class="footer-brand-desc">Akron's trusted real estate team for over 15 years. Helping families buy, sell, and invest in Summit County with honesty and local expertise.</p>
+        <div class="social-links">
+          <a href="#" class="social-link">f</a>
+          <a href="#" class="social-link">in</a>
+          <a href="#" class="social-link">ig</a>
+          <a href="#" class="social-link">yt</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="#services">Home Buying</a></li>
+          <li><a href="#services">Home Selling</a></li>
+          <li><a href="#services">Investment Properties</a></li>
+          <li><a href="#services">Relocation</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#testimonials">Reviews</a></li>
+          <li><a href="#why-us">Why Premier</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="tel:3305550200">(330) 555-0200</a></li>
+          <li><a href="#">hello@premierrealtyakron.com</a></li>
+          <li><a href="#">123 Main St, Suite 200</a></li>
+          <li><a href="#">Akron, OH 44308</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Premier Realty Group. All rights reserved.</span>
+      <span>Licensed in Ohio &nbsp;|&nbsp; Equal Housing Opportunity</span>
+    </div>
+  </footer>
+
+</body>
+</html>
